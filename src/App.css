@@ -1,4 +1,17 @@
 .App {
-    text-align: center;
-  }
-  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notes-board {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.container-note-form {
+  align-self: flex-start;
+  margin-left: 4rem;
+  text-align: center;
+  padding-top: 2rem;
+}

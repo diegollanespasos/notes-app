@@ -1,0 +1,35 @@
+.note-form {
+    background-color: #FFFFFE;
+    margin: 3rem;
+    padding-top: 1.2rem;
+    border-radius: 2rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+input[type=text] {
+    padding: 1rem;
+    margin: 2rem;
+    border:0;
+    border-bottom:1px solid gray;
+    font-size: 1.7rem;
+}
+
+input[type=submit] {
+    background-color: #05B8B8;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.7rem;
+    border: none;
+    border-radius: 3rem;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+textarea {
+    margin: 2rem;
+    font-size: 1.5rem;
+}

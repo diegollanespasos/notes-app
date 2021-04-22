@@ -1,0 +1,20 @@
+.note-list {
+    background-color: #FFFFFE;
+    margin: 3.2rem;
+    padding-top: 1.2rem;
+    border-radius: 2rem;
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-section {
+    display: flex;
+}
+
+h2 {
+    font-size: 3rem;
+    padding-right: 2rem;
+}

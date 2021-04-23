@@ -2,7 +2,7 @@ import React from "react";
 import { Note } from "../../organisms/Note/Note";
 import "./NoteList.css";
 
-export const NoteList = ({ category, notes, isLoading, receiveNotes, listTitle }) => {
+const NoteList = ({ notes, listTitle, category, modifyNote, receiveNotes, isLoading }) => {
     if (isLoading) {
       return <p>Loading...</p>;
     }
@@ -14,12 +14,14 @@ export const NoteList = ({ category, notes, isLoading, receiveNotes, listTitle }
           {
             notes.filter(note => note.category === category).map(note => 
               <Note
-              id={note.id} 
               key={note.id}
+              id={note.id} 
               title={note.title} 
               message={note.message} 
               date={note.date}
+              category={category}
               receiveNotes={receiveNotes}
+              modifyNote={modifyNote}
               />)
           }   
           </div>
@@ -27,3 +29,5 @@ export const NoteList = ({ category, notes, isLoading, receiveNotes, listTitle }
       );
     }
   };
+
+  export default NoteList;

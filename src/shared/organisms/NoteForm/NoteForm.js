@@ -1,25 +1,50 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import "./NoteForm.css";
 
-const NoteForm = ({ postingNote }) => {
-    const [title, setTitle] = useState("");
-    const [message, setMessage] = useState("");
-    const [category, setCategory] = useState(1);
-  
+const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCategory, receiveNotes }) => {
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        postingNote(title, message, category);   
+        postNote(title, message, category);   
+    }
+
+    const postNote = async (title, message, category) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ title: title, message: message, category: category })
+        };
+        try {
+          await fetch('http://3.21.165.187/api', requestOptions);
+          receiveNotes();
+        } catch(e){
+          console.log(e.message);
+        }
+      }
+
+    const updateNote = async () => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ title: title, message: message, category: category })
+        };
+        try{
+            await fetch(`http://3.21.165.187/api/${id}`, requestOptions);
+            receiveNotes();
+        } catch(e) {
+            console.log(e.message);
+        }
     }
 
     return (
         <React.Fragment>
             <div className='note-form'>
                 <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder='Title'
-                        value={title}
-                        onChange={event => setTitle(event.target.value)}
+                    <input 
+                    type="text"
+                    placeholder='Title'
+                    value={title}
+                    onChange={event => setTitle(event.target.value)}
                     />
                     <textarea 
                     onChange={event => setMessage(event.target.value)} 
@@ -36,6 +61,7 @@ const NoteForm = ({ postingNote }) => {
                         </select>
                     <input type="submit" value="Submit" />
                 </form>
+                <button onClick={updateNote}>Modify</button>
             </div> 
         </React.Fragment>
     )

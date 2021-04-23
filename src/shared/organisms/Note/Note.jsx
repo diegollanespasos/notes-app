@@ -1,9 +1,9 @@
 import React from "react";
 import "./Note.css";
 
-export const Note = ({ id, title, message, date, receiveNotes }) => {
+export const Note = ({ id, title, message, date, category, receiveNotes, modifyNote }) => {
 
-  const deletePost = async () => {
+  const deleteNote= async () => {
     try {
       await fetch(`http://3.21.165.187/api/${id}`, { method: 'DELETE' });
       receiveNotes();
@@ -23,8 +23,8 @@ export const Note = ({ id, title, message, date, receiveNotes }) => {
         <h3>{title}</h3>
         <p>{message}</p>
         <div id='bottom-section'>
-          <button onClick={() => console.log('click modifiy')}>Modify</button>
-          <button onClick={deletePost}>Delete</button>
+          <button onClick={() => modifyNote(id, title, message, category)}>Modify</button>
+          <button onClick={deleteNote}>Delete</button>
           <p>{dateFormatted()}</p> 
         </div>  
       </div>

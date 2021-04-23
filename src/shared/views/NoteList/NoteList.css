@@ -6,12 +6,7 @@
     width: 35rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.top-section {
-    display: flex;
 }
 
 h2 {

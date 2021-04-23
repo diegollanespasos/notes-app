@@ -1,7 +1,21 @@
 import React from "react";
 import "./Note.css";
 
-export const Note = ({ title, message, date }) => {
+export const Note = ({ id, title, message, date, receiveNotes }) => {
+
+  const deletePost = async () => {
+    try {
+      await fetch(`http://3.21.165.187/api/${id}`, { method: 'DELETE' });
+      receiveNotes();
+    } catch(e){
+      console.log(e.message);
+    }
+  }
+
+  const dateFormatted = () => {
+    let newDate = new Date(date);
+    return (((newDate.getMonth() > 8) ? (newDate.getMonth() + 1) : ('0' + (newDate.getMonth() + 1))) + '/' + ((newDate.getDate() > 9) ? newDate.getDate() : ('0' + newDate.getDate())) + '/' + newDate.getFullYear());
+  }
 
   return (
     <React.Fragment>
@@ -9,9 +23,9 @@ export const Note = ({ title, message, date }) => {
         <h3>{title}</h3>
         <p>{message}</p>
         <div id='bottom-section'>
-          <button onClick={() => console.log('click modify')}>Modify</button>
-          <button onClick={() => console.log('click delete')}>Delete</button>
-          <p>{date}</p> 
+          <button onClick={() => console.log('click modifiy')}>Modify</button>
+          <button onClick={deletePost}>Delete</button>
+          <p>{dateFormatted()}</p> 
         </div>  
       </div>
     </React.Fragment>

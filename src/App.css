@@ -6,12 +6,11 @@
 
 .notes-board {
   display: flex;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .container-note-form {
   align-self: flex-start;
-  margin-left: 4rem;
   text-align: center;
   padding-top: 2rem;
 }

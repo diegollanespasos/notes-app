@@ -1,4 +1,4 @@
-const REQUEST_URL = "http://3.21.165.187/api";
+const REQUEST_URL = "http://3.22.236.48/api";
 
 export const fetchNotes = async () => {
   return fetch(REQUEST_URL)

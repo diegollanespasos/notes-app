@@ -41,7 +41,7 @@ const App = () => {
           <NoteList listTitle='Done' notes={notes} category={3}  modifyNote={modifyNote} receiveNotes={receiveNotes} isLoading={isLoading} />
         </div>
         <div className='container-note-form'>
-          <h2>Post a note</h2>
+          <h2>Post - Modify</h2>
           <NoteForm
           id={id}
           title={title}

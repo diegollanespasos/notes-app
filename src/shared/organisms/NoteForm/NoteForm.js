@@ -15,7 +15,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
             body: JSON.stringify({ title: title, message: message, category: category })
         };
         try {
-          await fetch('http://3.21.165.187/api', requestOptions);
+          await fetch('http://3.22.236.48/api', requestOptions);
           receiveNotes();
         } catch(e){
           console.log(e.message);
@@ -29,7 +29,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
             body: JSON.stringify({ title: title, message: message, category: category })
         };
         try{
-            await fetch(`http://3.21.165.187/api/${id}`, requestOptions);
+            await fetch(`http://3.22.236.48/api/${id}`, requestOptions);
             receiveNotes();
         } catch(e) {
             console.log(e.message);
@@ -61,7 +61,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
                         </select>
                     <input type="submit" value="Submit" />
                 </form>
-                <button onClick={updateNote}>Modify</button>
+                <button id='modify-button' onClick={updateNote}>Modify</button>
             </div> 
         </React.Fragment>
     )

@@ -5,7 +5,7 @@ export const Note = ({ id, title, message, date, category, receiveNotes, modifyN
 
   const deleteNote= async () => {
     try {
-      await fetch(`http://3.21.165.187/api/${id}`, { method: 'DELETE' });
+      await fetch(`http://3.22.236.48/api/${id}`, { method: 'DELETE' });
       receiveNotes();
     } catch(e){
       console.log(e.message);

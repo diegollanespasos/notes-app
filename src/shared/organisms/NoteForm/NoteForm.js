@@ -15,7 +15,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
             body: JSON.stringify({ title: title, message: message, category: category })
         };
         try {
-          await fetch('http://3.22.236.48/api', requestOptions);
+          await fetch('https://www.diegollanes.ml/api', requestOptions);
           receiveNotes();
         } catch(e){
           console.log(e.message);
@@ -29,7 +29,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
             body: JSON.stringify({ title: title, message: message, category: category })
         };
         try{
-            await fetch(`http://3.22.236.48/api/${id}`, requestOptions);
+            await fetch(`https://www.diegollanes.ml/api/${id}`, requestOptions);
             receiveNotes();
         } catch(e) {
             console.log(e.message);

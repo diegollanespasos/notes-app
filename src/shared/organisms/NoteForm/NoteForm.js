@@ -1,7 +1,7 @@
 import React from 'react';
 import "./NoteForm.css";
 
-const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCategory, receiveNotes }) => {
+const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCategory, receiveNotes, resetForm }) => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,6 +20,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
         } catch(e){
           console.log(e.message);
         }
+        resetForm();
       }
 
     const updateNote = async () => {
@@ -34,6 +35,7 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
         } catch(e) {
             console.log(e.message);
         }
+        resetForm();
     }
 
     return (
@@ -59,7 +61,9 @@ const NoteForm = ({ id, title, message, category, setTitle, setMessage, setCateg
                             <option value={2}>Doing</option>
                             <option value={3}>Done</option>
                         </select>
-                    <input type="submit" value="Submit" />
+                        <div>
+                            <input type="submit" value="Post" id='post-button'/>
+                        </div>
                 </form>
                 <button id='modify-button' onClick={updateNote}>Modify</button>
             </div> 

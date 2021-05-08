@@ -10,7 +10,9 @@ const NoteList = ({ notes, listTitle, category, modifyNote, receiveNotes, isLoad
       return (
         <React.Fragment>
           <div className='note-list'>
-            <h2>{listTitle}</h2>
+            <div className={`header color${category}`}>
+              <h2>{listTitle}</h2>
+            </div>
           {
             notes.filter(note => note.category === category).map(note => 
               <Note

@@ -7,7 +7,7 @@ import { fetchNotes } from './shared/services/notesService.js';
 const App = () => {
   const [notes, updateNotes] = useState();
   const [isLoading, updateLoading] = useState(true);
-  const [id, setID] = useState();
+  const [id, setID] = useState(null);
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState(1);
@@ -32,6 +32,13 @@ const App = () => {
     setMessage(message);
     setCategory(category);
   }
+
+  const resetForm = () => {
+    setID(null);
+    setTitle('');
+    setMessage('');
+    setCategory(1);
+  }
   
   return (
     <div className="App">
@@ -41,7 +48,7 @@ const App = () => {
           <NoteList listTitle='Done' notes={notes} category={3}  modifyNote={modifyNote} receiveNotes={receiveNotes} isLoading={isLoading} />
         </div>
         <div className='container-note-form'>
-          <h2>Post - Modify</h2>
+          <h2>Post & Modify</h2>
           <NoteForm
           id={id}
           title={title}
@@ -50,7 +57,8 @@ const App = () => {
           setTitle={setTitle}
           setMessage={setMessage}
           setCategory={setCategory}
-          receiveNotes={receiveNotes}/>
+          receiveNotes={receiveNotes}
+          resetForm={resetForm}/>
         </div>
     </div>
   );
